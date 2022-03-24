@@ -1,16 +1,21 @@
-# my_portfolio
+# Flutter Responsive Web Portfolio
 
-A new Flutter project.
+Star⭐ the repo if you like what you see😉.
 
-## Getting Started
+Web App: https://www.agnelselvan.com/#/
 
-This project is a starting point for a Flutter application.
+#### How to Install?
+```
+git clone https://github.com/AgnelSelvan/Flutter-Web-Portfolio.git
+cd Flutter-Web-Portfolio
+flutter packages get
+flutter run -d chrome
+```
 
-A few resources to get you started if this is your first Flutter project:
+#### Looks
+<img src="./outputs/gif/desktop.gif" />
+<img src="./outputs/gif/mobile.gif" />
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Special Thanks
+Inspired by **mhmzdev**
