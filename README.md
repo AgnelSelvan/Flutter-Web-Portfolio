@@ -14,7 +14,7 @@ flutter run -d chrome
 
 #### Looks
 <img src="./outputs/gif/desktop.gif" />
-<img src="./outputs/gif/mobile.gif" />
+<img width="150" src="./outputs/gif/mobile.gif" />
 
 
 #### Special Thanks
