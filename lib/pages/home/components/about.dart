@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/technology.dart';
+import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/utils/constants.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -47,7 +49,6 @@ class _AboutSectionState extends State<AboutSection> {
                       Text(
                         "About Me",
                         style: GoogleFonts.josefinSans(
-                          color: Colors.white,
                           fontWeight: FontWeight.w900,
                           height: 1.3,
                           fontSize: 35.0,
@@ -59,7 +60,6 @@ class _AboutSectionState extends State<AboutSection> {
                       Text(
                         "I'm Agnel Selvan, A Flutter and iOS Developer and Technical Blog Writer",
                         style: GoogleFonts.josefinSans(
-                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           height: 1.3,
                           fontSize: 24.0,
@@ -82,7 +82,6 @@ class _AboutSectionState extends State<AboutSection> {
                       const Text(
                         "Technology I have worked with",
                         style: TextStyle(
-                          color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
@@ -90,53 +89,62 @@ class _AboutSectionState extends State<AboutSection> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      ScrollConfiguration(
-                        behavior: ScrollConfiguration.of(context)
-                            .copyWith(scrollbars: false),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: TechnologyConstants.technologyLearned
-                                .map((e) => MouseRegion(
-                                      cursor: SystemMouseCursors.click,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[800],
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 5),
-                                        height: 20.0,
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8.0, vertical: 4),
-                                        child: InkWell(
-                                          onTap: () {},
-                                          child: Center(
-                                            child: Row(
-                                              children: [
-                                                SizedBox(
-                                                    width: 30,
-                                                    height: 30,
-                                                    child: Image.asset(e.logo)),
-                                                Text(
-                                                  e.name,
-                                                  style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 8.0,
-                                                    fontWeight: FontWeight.bold,
+                      Consumer(builder: (context, ref, _) {
+                        return ScrollConfiguration(
+                          behavior: ScrollConfiguration.of(context)
+                              .copyWith(scrollbars: false),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: TechnologyConstants.technologyLearned
+                                  .map((e) => MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: ref
+                                                    .watch(themeProvider)
+                                                    .isDarkMode
+                                                ? Colors.grey[800]
+                                                : Colors.grey[200],
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 5),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 8.0, vertical: 6),
+                                          child: InkWell(
+                                            onTap: () {},
+                                            child: Center(
+                                              child: Row(
+                                                children: [
+                                                  SizedBox(
+                                                      width: 20,
+                                                      height: 20,
+                                                      child:
+                                                          Image.asset(e.logo)),
+                                                  const SizedBox(
+                                                    width: 10,
                                                   ),
-                                                ),
-                                              ],
+                                                  Text(
+                                                    e.name,
+                                                    style: const TextStyle(
+                                                      fontSize: 12.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ))
-                                .toList(),
+                                      ))
+                                  .toList(),
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                       const SizedBox(
                         height: 70.0,
                       )

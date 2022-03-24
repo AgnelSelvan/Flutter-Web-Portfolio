@@ -26,7 +26,6 @@ class HeaderLogo extends StatelessWidget {
                 TextSpan(
                   text: "A ",
                   style: GoogleFonts.josefinSans(
-                    color: Colors.white,
                     fontSize: 26.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5,
@@ -51,7 +50,8 @@ class HeaderLogo extends StatelessWidget {
 }
 
 class HeaderRow extends StatelessWidget {
-  const HeaderRow({Key? key}) : super(key: key);
+  const HeaderRow({Key? key, required this.themeSwitch}) : super(key: key);
+  final Widget themeSwitch;
 
   static List<NameOnTap> get headerItems => [
         NameOnTap(
@@ -80,8 +80,8 @@ class HeaderRow extends StatelessWidget {
       ],
       child: Consumer(
         builder: (context, ref, child) {
-          return Row(
-            children: headerItems
+          return Row(children: [
+            ...headerItems
                 .map(
                   (item) => MouseRegion(
                     cursor: SystemMouseCursors.click,
@@ -96,10 +96,8 @@ class HeaderRow extends StatelessWidget {
                         child: Text(
                           item.title,
                           style: TextStyle(
-                            color: item.title == "Blogs"
-                                ? kPrimaryColor
-                                : Colors.white,
-                            fontSize: 13.0,
+                            color: item.title == "Blogs" ? kPrimaryColor : null,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
                           ),
@@ -109,7 +107,8 @@ class HeaderRow extends StatelessWidget {
                   ),
                 )
                 .toList(),
-          );
+            themeSwitch
+          ]);
         },
       ),
     );
@@ -117,22 +116,23 @@ class HeaderRow extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+  const Header({Key? key, required this.themeSwitch}) : super(key: key);
+  final Widget themeSwitch;
 
   @override
   Widget build(BuildContext context) {
     return ScreenHelper(
-      desktop: buildHeader(context),
-      mobile: buildMobileHeader(),
-      tablet: buildHeader(context),
+      desktop: buildHeader(context, themeSwitch),
+      mobile: buildMobileHeader(context),
+      tablet: buildHeader(context, themeSwitch),
     );
   }
 
   // mobile header
-  Widget buildMobileHeader() {
+  Widget buildMobileHeader(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: kBackgroundColor.withOpacity(0.95),
+        color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +144,6 @@ class Header extends StatelessWidget {
               },
               child: const Icon(
                 Icons.menu,
-                color: Colors.white,
                 size: 28.0,
               ),
             )
@@ -155,17 +154,19 @@ class Header extends StatelessWidget {
   }
 
   // Lets plan for mobile and smaller width screens
-  Widget buildHeader(BuildContext context) {
+  Widget buildHeader(BuildContext context, Widget themeSwitch) {
     return Container(
-      color: kBackgroundColor.withOpacity(0.95),
+      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: ScreenHelper.isDesktop(context) ? 24 : 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            HeaderLogo(),
-            HeaderRow(),
+          children: [
+            const HeaderLogo(),
+            HeaderRow(
+              themeSwitch: themeSwitch,
+            ),
           ],
         ),
       ),

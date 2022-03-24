@@ -35,7 +35,6 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                     Text(
                       "Agnel Selvan".toUpperCase(),
                       style: GoogleFonts.josefinSans(
-                        color: Colors.white,
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
                         height: 1.3,

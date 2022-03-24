@@ -51,7 +51,6 @@ class PortfolioStats extends StatelessWidget {
                         style: GoogleFonts.josefinSans(
                           fontWeight: FontWeight.w700,
                           fontSize: 32.0,
-                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(

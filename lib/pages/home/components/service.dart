@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/name_color.dart';
+import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/utils/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -77,7 +79,6 @@ class ServiceSection extends StatelessWidget {
               Text(
                 "Productive ,\n   Experienced",
                 style: GoogleFonts.josefinSans(
-                  color: Colors.white,
                   fontWeight: FontWeight.w900,
                   height: 1.8,
                   letterSpacing: 2,
@@ -109,7 +110,6 @@ class ServiceSection extends StatelessWidget {
           Text(
             "What I Do?",
             style: GoogleFonts.josefinSans(
-              color: Colors.white,
               fontWeight: FontWeight.w900,
               height: 1.3,
               fontSize: 35.0,
@@ -128,44 +128,60 @@ class ServiceSection extends StatelessWidget {
           SizedBox(
             height: ScreenHelper.isDesktop(context) ? 140 : 70,
           ),
-          Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              runAlignment: WrapAlignment.center,
-              children: whatIDo
-                  .map((e) => Container(
-                        height: 200,
-                        width: 200,
-                        margin: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(75, 12, 12, 7),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              e.iconData,
-                              color: e.color,
-                              size: 52,
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              e.title,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.josefinSans(
-                                color: Colors.grey[400],
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
+          Consumer(builder: (context, ref, _) {
+            return Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                runAlignment: WrapAlignment.center,
+                children: whatIDo
+                    .map((e) => Container(
+                          height: 200,
+                          width: 200,
+                          margin: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: ref.watch(themeProvider).isDarkMode
+                                ? const Color.fromARGB(75, 12, 12, 7)
+                                : Colors.grey[50],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 80,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: ref.watch(themeProvider).isDarkMode
+                                      ? Colors.grey[900]
+                                      : Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(80),
+                                ),
+                                child: Icon(
+                                  e.iconData,
+                                  color: e.color,
+                                  size: 52,
+                                ),
                               ),
-                            )
-                          ],
-                        ),
-                      ))
-                  .toList()),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                e.title,
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.josefinSans(
+                                  color: ref.watch(themeProvider).isDarkMode
+                                      ? Colors.grey[400]
+                                      : Colors.grey[800],
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              )
+                            ],
+                          ),
+                        ))
+                    .toList());
+          }),
           const SizedBox(
             height: 80.0,
           ),
@@ -208,7 +224,6 @@ class ServiceSection extends StatelessWidget {
                                 style: GoogleFonts.josefinSans(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.white,
                                 ),
                               )
                             ],

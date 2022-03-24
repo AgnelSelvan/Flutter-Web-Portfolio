@@ -102,7 +102,6 @@ Widget _buildUi(double width, BuildContext context) {
                                         style: GoogleFonts.josefinSans(
                                           fontSize: 18.0,
                                           fontWeight: FontWeight.w700,
-                                          color: Colors.white,
                                         ),
                                       ),
                                     ],
