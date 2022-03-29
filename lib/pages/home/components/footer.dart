@@ -26,7 +26,7 @@ final List<FooterItem> footerItems = [
   FooterItem(
       iconData: Icons.mail,
       title: "EMAIL",
-      text1: "agnelselvan007@gnail.com",
+      text1: "agnelselvan007@gmail.com",
       text2: "",
       onTap: () {
         Utilty.openMail();

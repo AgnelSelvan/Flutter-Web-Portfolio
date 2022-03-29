@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/header_item.dart';
 import 'package:my_portfolio/provider/home.dart';
+import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/utils/constants.dart';
 import 'package:my_portfolio/utils/globals.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
@@ -14,38 +15,43 @@ class HeaderLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: GestureDetector(
-          onTap: () {},
-          child: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "A ",
-                  style: GoogleFonts.josefinSans(
-                    fontSize: 26.0,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
+    return Consumer(builder: (context, ref, _) {
+      return Container(
+        padding: const EdgeInsets.all(20),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {},
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "A ",
+                    style: GoogleFonts.josefinSans(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      color: ref.watch(themeProvider).isDarkMode
+                          ? Colors.white
+                          : Colors.black,
+                    ),
                   ),
-                ),
-                TextSpan(
-                  text: "Dev",
-                  style: GoogleFonts.josefinSans(
-                    color: kPrimaryColor,
-                    fontSize: 26.0,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                  ),
-                )
-              ],
+                  TextSpan(
+                    text: "Dev",
+                    style: GoogleFonts.josefinSans(
+                      color: kPrimaryColor,
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 
@@ -59,16 +65,41 @@ class HeaderRow extends StatelessWidget {
           iconData: Icons.home,
           onTap: () {},
         ),
-        NameOnTap(title: "About", onTap: () {}, iconData: Icons.info),
-        NameOnTap(title: "Services", onTap: () {}, iconData: Icons.school),
-        NameOnTap(title: "Portfolio", onTap: () {}, iconData: Icons.work),
-        NameOnTap(title: "Contact", onTap: () {}, iconData: Icons.contact_mail),
         NameOnTap(
-            title: "Blogs",
-            onTap: () {
-              Utilty.openUrl(AppConstants.mediumUrl);
-            },
-            iconData: Icons.article),
+          title: "About",
+          onTap: () {},
+          iconData: Icons.info,
+        ),
+        NameOnTap(
+          title: "Services",
+          onTap: () {},
+          iconData: Icons.school,
+        ),
+        NameOnTap(
+          title: "Portfolio",
+          onTap: () {},
+          iconData: Icons.work,
+        ),
+        NameOnTap(
+          title: "Contact",
+          onTap: () {},
+          iconData: Icons.contact_mail,
+        ),
+        NameOnTap(
+          title: "Blogs",
+          onTap: () {
+            Utilty.openUrl(AppConstants.mediumUrl);
+          },
+          iconData: Icons.article,
+        ),
+        NameOnTap(
+          title: "Themes",
+          onTap: () {
+            Utilty.openUrl(AppConstants.mediumUrl);
+          },
+          iconData: Icons.light_mode_outlined,
+          isDarkTheme: true,
+        ),
       ];
 
   @override

@@ -163,6 +163,25 @@ class _HomeState extends ConsumerState<Home>
                       HeaderRow.headerItems[index].title,
                       style: const TextStyle(),
                     ),
+                    trailing: HeaderRow.headerItems[index].isDarkTheme != null
+                        ? HeaderRow.headerItems[index].isDarkTheme!
+                            ? SizedBox(
+                                width: 50,
+                                child: CustomSwitch(
+                                  value: ref.watch(themeProvider).isDarkMode,
+                                  onChanged: (val) {
+                                    ref.read(themeProvider).changeTheme(val);
+                                    ThemeSwitcher.of(context).changeTheme(
+                                        theme: ref
+                                            .read(themeProvider)
+                                            .getCurrentTheme,
+                                        isReversed: false // default: false
+                                        );
+                                  },
+                                ),
+                              )
+                            : null
+                        : null,
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
