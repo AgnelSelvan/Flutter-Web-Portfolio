@@ -114,28 +114,33 @@ class HeaderRow extends StatelessWidget {
           return Row(children: [
             ...headerItems
                 .map(
-                  (item) => MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 30.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          item.onTap();
-                          HomeProvider _homeProvider = ref.read(homeProvider);
-                          _homeProvider.scrollBasedOnHeader(item);
-                        },
-                        child: Text(
-                          item.title,
-                          style: TextStyle(
-                            color: item.title == "Blogs" ? kPrimaryColor : null,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 2,
+                  (item) => item.title == "Themes"
+                      ? const Text("")
+                      : MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 30.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                item.onTap();
+                                HomeProvider _homeProvider =
+                                    ref.read(homeProvider);
+                                _homeProvider.scrollBasedOnHeader(item);
+                              },
+                              child: Text(
+                                item.title,
+                                style: TextStyle(
+                                  color: item.title == "Blogs"
+                                      ? kPrimaryColor
+                                      : null,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 2,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
                 )
                 .toList(),
             themeSwitch
