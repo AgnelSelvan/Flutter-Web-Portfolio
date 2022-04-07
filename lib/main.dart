@@ -1,12 +1,19 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
 import 'package:my_portfolio/utils/constants.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+void configureApp() {
+  setUrlStrategy(PathUrlStrategy());
+}
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureApp();
   runApp(const ProviderScope(child: MyApp()));
 }
 

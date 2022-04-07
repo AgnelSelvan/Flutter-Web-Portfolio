@@ -47,7 +47,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                     Row(
                       children: const [
                         Text(
-                          "iOS and Flutter Developer, ",
+                          "Software Engineer, ",
                           style: TextStyle(
                             color: kCaptionColor,
                             fontSize: 15.0,
