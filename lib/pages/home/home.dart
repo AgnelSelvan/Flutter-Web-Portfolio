@@ -2,6 +2,7 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/pages/home/components/about.dart';
 import 'package:my_portfolio/pages/home/components/carousel.dart';
 import 'package:my_portfolio/pages/home/components/footer.dart';
@@ -39,96 +40,95 @@ class _HomeState extends ConsumerState<Home>
   }
 
   Widget _buildPage() {
-    return Container(
-      child: Stack(
-        children: [
-          ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: ScreenHelper.isDesktop(context) ? 30 : 20,
-                  ),
-                  Carousel(
-                    key: _homeProvider.homeKey,
-                  ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
-                  AboutSection(
-                    key: _homeProvider.aboutKey,
-                  ),
-                  ServiceSection(
-                    key: _homeProvider.servicesKey,
-                  ),
-                  SizedBox(
-                    key: _homeProvider.portfolioKey,
-                    height: 100.0,
-                  ),
-                  Center(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Portfolio",
-                        style: GoogleFonts.josefinSans(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 36,
-                        ),
+    return Stack(
+      children: [
+        ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: ScreenHelper.isDesktop(context) ? 30 : 20,
+                ),
+                Carousel(
+                  key: _homeProvider.homeKey,
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                AboutSection(
+                  key: _homeProvider.aboutKey,
+                ),
+                ServiceSection(
+                  key: _homeProvider.servicesKey,
+                ),
+                SizedBox(
+                  key: _homeProvider.portfolioKey,
+                  height: 100.0,
+                ),
+                Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Portfolio",
+                      style: GoogleFonts.josefinSans(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 36,
                       ),
-                      const SizedBox(
-                        height: 5,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Here are some of my Previous Work :)",
+                      style: GoogleFonts.josefinSans(
+                        color: Colors.grey[400],
+                        fontSize: 14,
                       ),
-                      Text(
-                        "Here are some of my Previous Work :)",
-                        style: GoogleFonts.josefinSans(
-                          color: Colors.grey[400],
-                          fontSize: 14,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      )
-                    ],
-                  )),
-                  const ProjectSection(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 28.0),
-                    child: PortfolioStats(),
-                  ),
-                  const SizedBox(
-                    height: 50.0,
-                  ),
-                  Footer(
-                    key: _homeProvider.contactKey,
-                  )
-                ],
-              ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    )
+                  ],
+                )),
+                ProjectSection(
+                  projects: ProjectModel.projects,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 28.0),
+                  child: PortfolioStats(),
+                ),
+                const SizedBox(
+                  height: 50.0,
+                ),
+                Footer(
+                  key: _homeProvider.contactKey,
+                )
+              ],
             ),
           ),
-          Header(
-            themeSwitch: ThemeSwitcher(
-                clipper: const ThemeSwitcherBoxClipper(),
-                builder: (context) {
-                  return CustomSwitch(
-                    value: ref.watch(themeProvider).isDarkMode,
-                    onChanged: (val) {
-                      ref.read(themeProvider).changeTheme(val);
-                      ThemeSwitcher.of(context).changeTheme(
-                          theme: ref.read(themeProvider).getCurrentTheme,
-                          isReversed: false // default: false
-                          );
-                    },
-                  );
-                }),
-          ),
-        ],
-      ),
+        ),
+        Header(
+          themeSwitch: ThemeSwitcher(
+              clipper: const ThemeSwitcherBoxClipper(),
+              builder: (context) {
+                return CustomSwitch(
+                  value: ref.watch(themeProvider).isDarkMode,
+                  onChanged: (val) {
+                    ref.read(themeProvider).changeTheme(val);
+                    ThemeSwitcher.of(context).changeTheme(
+                        theme: ref.read(themeProvider).getCurrentTheme,
+                        isReversed: false // default: false
+                        );
+                  },
+                );
+              }),
+        ),
+      ],
     );
   }
 

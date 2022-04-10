@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/header_item.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
+import 'package:my_portfolio/routes/routes.dart';
 import 'package:my_portfolio/utils/constants.dart';
 import 'package:my_portfolio/utils/globals.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
@@ -21,7 +22,9 @@ class HeaderLogo extends StatelessWidget {
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, Routes.initial);
+            },
             child: RichText(
               text: TextSpan(
                 children: [

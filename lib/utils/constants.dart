@@ -21,6 +21,7 @@ class AppConstants {
   static const mediumUrl = "https://medium.com/@agnelselvan";
 
   static const _assets = "assets/";
+  static const _outputs = "outputs/";
 
   static const _svg = _assets + "svg/";
   static const guySvg = _svg + "guy.svg";
@@ -54,6 +55,9 @@ class AppConstants {
   static const musicLabImage = _projectsImages + "4.jpeg";
   static const personalFaceImage = _projectsImages + "5.jpeg";
   static const computerStoreImage = _projectsImages + "6.jpeg";
+
+  static const _gifs = _outputs + "gif/";
+  static const portfolioGif = _gifs + "mobile.gif";
 
   static List<NameOnTap> socialLoginDatas = [
     NameOnTap(

@@ -7,46 +7,43 @@ import 'package:my_portfolio/utils/constants.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:my_portfolio/utils/utils.dart';
 
-class ProjectSection extends StatelessWidget {
+class DemoSection extends StatelessWidget {
   final List<ProjectModel> projects;
-  const ProjectSection({Key? key, required this.projects}) : super(key: key);
+  const DemoSection({Key? key, required this.projects}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ScreenHelper(
-        desktop: _buildUi(kDesktopMaxWidth, context),
-        tablet: _buildUi(kTabletMaxWidth, context),
-        mobile: _buildUi(getMobileMaxWidth(context), context),
+        desktop: _buildUi(context),
+        tablet: _buildUi(context),
+        mobile: _buildUi(context),
       ),
     );
   }
 
-  Widget _buildUi(double width, BuildContext context) {
+  Widget _buildUi(BuildContext context) {
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: projects
-              .map((e) => Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 15,
-                  ),
-                  child: _buildProject(width, e)))
-              .toList(),
-        ),
+      child: Wrap(
+        children: projects
+            .map((e) => Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
+                child: _buildProject(e)))
+            .toList(),
       ),
     );
   }
 
-  Center _buildProject(double width, ProjectModel projectModel) {
+  Center _buildProject(ProjectModel projectModel) {
     return Center(
       child: LayoutBuilder(
         builder: (context, constraints) {
           return SizedBox(
-            width: width,
+            width: 400,
             child: Consumer(builder: (context, ref, _) {
               return Container(
                 padding: const EdgeInsets.all(20),
@@ -56,29 +53,18 @@ class ProjectSection extends StatelessWidget {
                         : Colors.grey[100],
                     borderRadius: BorderRadius.circular(5)),
                 child: Flex(
-                  direction: ScreenHelper.isMobile(context)
-                      ? Axis.vertical
-                      : Axis.horizontal,
+                  direction: Axis.vertical,
                   children: [
-                    SizedBox(
-                      width: ScreenHelper.isMobile(context)
-                          ? width * 0.9
-                          : width * 0.46,
-                      child: Image.asset(
-                        projectModel.appPhotos,
-                        width: constraints.maxWidth > 720.0 ? null : 350.0,
-                        height: 250,
-                      ),
+                    Image.asset(
+                      projectModel.appPhotos,
+                      width: constraints.maxWidth > 720.0 ? null : 350.0,
+                      height: 250,
                     ),
-
                     const SizedBox(
                       width: 20,
                       height: 20,
                     ),
                     SizedBox(
-                      width: ScreenHelper.isMobile(context)
-                          ? width * 0.9
-                          : width * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,43 +87,6 @@ class ProjectSection extends StatelessWidget {
                               height: 1.3,
                               fontSize: 28.0,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10.0,
-                          ),
-                          Text(
-                            projectModel.description,
-                            style: const TextStyle(
-                              color: kCaptionColor,
-                              height: 1.5,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          projectModel.techUsed.isEmpty
-                              ? Container()
-                              : Text(
-                                  "Technologies Used",
-                                  style: GoogleFonts.josefinSans(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                          Wrap(
-                            children: projectModel.techUsed
-                                .map((e) => Container(
-                                      margin: const EdgeInsets.all(10),
-                                      width: 25,
-                                      color:
-                                          e.logo == AppConstants.razorPayImage
-                                              ? Colors.white
-                                              : null,
-                                      height: 25,
-                                      child: Image.asset(e.logo),
-                                    ))
-                                .toList(),
                           ),
                           const SizedBox(
                             height: 25.0,

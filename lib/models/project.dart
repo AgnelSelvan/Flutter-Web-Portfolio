@@ -10,6 +10,7 @@ class ProjectModel {
   final String projectLink;
   final List<TechnologyModel> techUsed;
   List<LinkModel>? links = [];
+  final String? buttonText;
 
   ProjectModel({
     required this.project,
@@ -18,6 +19,7 @@ class ProjectModel {
     required this.appPhotos,
     required this.projectLink,
     required this.techUsed,
+    this.buttonText,
     this.links,
   });
 
@@ -36,6 +38,7 @@ class ProjectModel {
         TechnologyConstants.python,
         TechnologyConstants.razorPay
       ],
+      buttonText: "Github Link",
     ),
     ProjectModel(
       project: "Swift App",
@@ -47,6 +50,7 @@ class ProjectModel {
         TechnologyConstants.swift,
         TechnologyConstants.sceneKit,
       ],
+      buttonText: "Github Link",
     ),
     ProjectModel(
       project: "Flutter App",
@@ -92,6 +96,18 @@ class ProjectModel {
       techUsed: [
         TechnologyConstants.python,
       ],
+    ),
+  ];
+
+  static List<ProjectModel> demos = [
+    ProjectModel(
+      project: "Flutter App",
+      title: "Flutter Web Portfolio",
+      description: "",
+      appPhotos: AppConstants.portfolioGif,
+      projectLink: "https://github.com/AgnelSelvan/Flutter-Web-Portfolio",
+      techUsed: [],
+      buttonText: "Github Link",
     ),
   ];
 }
