@@ -1,6 +1,6 @@
 # Flutter Responsive Web Portfolio
 
-Star⭐ the repo if you like what you see😉.
+Star ⭐ the repo if you like what you see😉.
 
 Web App: https://www.agnelselvan.com/#/
 
@@ -15,7 +15,3 @@ flutter run -d chrome
 #### Looks
 <img src="./outputs/gif/desktop.gif" />
 <img width="150" src="./outputs/gif/mobile.gif" />
-
-
-#### Special Thanks
-Inspired by **mhmzdev**
