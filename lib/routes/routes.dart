@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/pages/demo/demo.dart';
 import 'package:my_portfolio/pages/home/home.dart';
+import 'package:my_portfolio/pages/works/works.dart';
 import 'package:my_portfolio/utils/constants.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class Routes {
   static const String initial = "/";
   static const String demos = "/demos";
+  static const String myWorks = "/works";
 }
 
 class RouterGenerator {
@@ -18,6 +20,9 @@ class RouterGenerator {
       case Routes.demos:
         return _GeneratePageRoute(
             widget: const DemoScreen(), routeName: settings.name);
+      case Routes.myWorks:
+        return _GeneratePageRoute(
+            widget: const MyWorksScreen(), routeName: settings.name);
       default:
         return _GeneratePageRoute(
             widget: const Home(), routeName: settings.name);

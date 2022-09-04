@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio/models/header_item.dart';
 import 'package:my_portfolio/utils/utils.dart';
 
@@ -30,11 +31,11 @@ class AppConstants {
   static const _images = _assets + "images/";
 
   static const _socialImages = _images + "social/";
-  static const emailImage = _socialImages + "email.png";
-  static const linkedInImage = _socialImages + "linkedin-logo.png";
-  static const instaImage = _socialImages + "instagram.png";
-  static const githubImage = _socialImages + "github.png";
-  static const mediumImage = _socialImages + "medium.png";
+  // static const emailImage = _socialImages + "email.png";
+  // static const linkedInImage = _socialImages + "linkedin-logo.png";
+  // static const instaImage = _socialImages + "instagram.png";
+  // static const githubImage = _socialImages + "github.png";
+  // static const mediumImage = _socialImages + "medium.png";
 
   static const _techImages = _images + "technology/";
   static const flutterImage = _techImages + "flutter.png";
@@ -61,27 +62,32 @@ class AppConstants {
 
   static List<NameOnTap> socialLoginDatas = [
     NameOnTap(
-        title: emailImage,
+        title: "Email",
+        iconData: Icons.mail_outline_rounded,
         onTap: () {
           Utilty.openMail();
         }),
     NameOnTap(
-        title: linkedInImage,
+        title: "LinkedIN",
+        iconData: FontAwesomeIcons.linkedinIn,
         onTap: () {
           Utilty.openUrl(linkedInUrl);
         }),
     NameOnTap(
-        title: instaImage,
+        title: "Instagram",
+        iconData: FontAwesomeIcons.instagram,
         onTap: () {
           Utilty.openUrl(instagramUrl);
         }),
     NameOnTap(
-        title: githubImage,
+        title: "Github",
+        iconData: FontAwesomeIcons.github,
         onTap: () {
           Utilty.openUrl(githubUrl);
         }),
     NameOnTap(
-        title: mediumImage,
+        title: "Medium",
+        iconData: FontAwesomeIcons.medium,
         onTap: () {
           Utilty.openUrl(mediumUrl);
         }),

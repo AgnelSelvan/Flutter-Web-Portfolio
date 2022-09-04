@@ -6,7 +6,7 @@ class ProjectModel {
   final String project;
   final String title;
   final String description;
-  final String appPhotos;
+  final String? appPhotos;
   final String projectLink;
   final List<TechnologyModel> techUsed;
   List<LinkModel>? links = [];
@@ -16,7 +16,7 @@ class ProjectModel {
     required this.project,
     required this.title,
     required this.description,
-    required this.appPhotos,
+    this.appPhotos,
     required this.projectLink,
     required this.techUsed,
     this.buttonText,
@@ -24,6 +24,30 @@ class ProjectModel {
   });
 
   static List<ProjectModel> projects = [
+    ProjectModel(
+      project: "Flutter Package",
+      title: "UPI QRCode Generator",
+      description:
+          "This Plugin mainly focus on the generation of UPI Payment QRCode, so that the user can scan the QRCode for paying the specific amount of money using UPI.",
+      appPhotos: AppConstants.flutterImage,
+      projectLink: "https://pub.dev/packages/upi_payment_qrcode_generator",
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: "Pub Dev",
+    ),
+    ProjectModel(
+      project: "Flutter Package",
+      title: "WIFI IP Details",
+      description:
+          "This package allows Flutter apps to get Wifi IP Details like Internet Service Provider(ISP), Country, Public IP Address, etc.",
+      appPhotos: AppConstants.flutterImage,
+      projectLink: "https://pub.dev/packages/wifi_ip_details",
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: "Pub Dev",
+    ),
     ProjectModel(
       project: "Flutter App",
       title: "Smart Store App",

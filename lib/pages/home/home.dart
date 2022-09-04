@@ -12,6 +12,8 @@ import 'package:my_portfolio/pages/home/components/project.dart';
 import 'package:my_portfolio/pages/home/components/service.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
+import 'package:my_portfolio/routes/routes.dart';
+import 'package:my_portfolio/utils/constants.dart';
 import 'package:my_portfolio/utils/globals.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:my_portfolio/widgets/switch.dart';
@@ -74,7 +76,7 @@ class _HomeState extends ConsumerState<Home>
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Portfolio",
+                      "My Works",
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         fontSize: 36,
@@ -90,13 +92,39 @@ class _HomeState extends ConsumerState<Home>
                         fontSize: 14,
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              Routes.myWorks,
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "View All",
+                              style: GoogleFonts.josefinSans(
+                                color: kPrimaryColor,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 15,
                     )
                   ],
                 )),
                 ProjectSection(
-                  projects: ProjectModel.projects,
+                  projects: ProjectModel.projects.take(4).toList(),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 28.0),

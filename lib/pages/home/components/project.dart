@@ -60,16 +60,17 @@ class ProjectSection extends StatelessWidget {
                       ? Axis.vertical
                       : Axis.horizontal,
                   children: [
-                    SizedBox(
-                      width: ScreenHelper.isMobile(context)
-                          ? width * 0.9
-                          : width * 0.46,
-                      child: Image.asset(
-                        projectModel.appPhotos,
-                        width: constraints.maxWidth > 720.0 ? null : 350.0,
-                        height: 250,
+                    if (projectModel.appPhotos != null)
+                      SizedBox(
+                        width: ScreenHelper.isMobile(context)
+                            ? width * 0.9
+                            : width * 0.46,
+                        child: Image.asset(
+                          projectModel.appPhotos!,
+                          width: constraints.maxWidth > 720.0 ? null : 350.0,
+                          height: 250,
+                        ),
                       ),
-                    ),
 
                     const SizedBox(
                       width: 20,
@@ -112,6 +113,8 @@ class ProjectSection extends StatelessWidget {
                               height: 1.5,
                               fontSize: 15.0,
                             ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           const SizedBox(
                             height: 20.0,

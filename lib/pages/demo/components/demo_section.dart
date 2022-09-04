@@ -55,11 +55,12 @@ class DemoSection extends StatelessWidget {
                 child: Flex(
                   direction: Axis.vertical,
                   children: [
-                    Image.asset(
-                      projectModel.appPhotos,
-                      width: constraints.maxWidth > 720.0 ? null : 350.0,
-                      height: 250,
-                    ),
+                    if (projectModel.appPhotos != null)
+                      Image.asset(
+                        projectModel.appPhotos!,
+                        width: constraints.maxWidth > 720.0 ? null : 350.0,
+                        height: 250,
+                      ),
                     const SizedBox(
                       width: 20,
                       height: 20,

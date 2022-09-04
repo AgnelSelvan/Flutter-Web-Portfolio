@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/project.dart';
-import 'package:my_portfolio/pages/demo/components/demo_section.dart';
 import 'package:my_portfolio/pages/home/components/footer.dart';
+import 'package:my_portfolio/pages/works/components/work_section.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:my_portfolio/widgets/header.dart';
 
-class DemoScreen extends ConsumerStatefulWidget {
-  const DemoScreen({Key? key}) : super(key: key);
+class MyWorksScreen extends ConsumerStatefulWidget {
+  const MyWorksScreen({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<DemoScreen> createState() => _DemoScreenState();
+  ConsumerState<MyWorksScreen> createState() => _DemoScreenState();
 }
 
-class _DemoScreenState extends ConsumerState<DemoScreen> {
+class _DemoScreenState extends ConsumerState<MyWorksScreen> {
   late HomeProvider _homeProvider;
   final ScrollController scrollController = ScrollController();
 
@@ -48,7 +48,7 @@ class _DemoScreenState extends ConsumerState<DemoScreen> {
                       height: 80,
                     ),
                     Text(
-                      "Demos",
+                      "My Works",
                       style: GoogleFonts.josefinSans(
                         fontWeight: FontWeight.w900,
                         fontSize: 36,
@@ -58,7 +58,7 @@ class _DemoScreenState extends ConsumerState<DemoScreen> {
                       height: 5,
                     ),
                     Text(
-                      "Here are some of my Demos :)",
+                      "Here are My Works",
                       style: GoogleFonts.josefinSans(
                         color: Colors.grey[400],
                         fontSize: 14,
@@ -69,8 +69,8 @@ class _DemoScreenState extends ConsumerState<DemoScreen> {
                     )
                   ],
                 )),
-                DemoSection(
-                  projects: ProjectModel.demos,
+                WorkSection(
+                  projects: ProjectModel.projects,
                 ),
                 const Footer()
               ],
