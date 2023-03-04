@@ -15,20 +15,19 @@ double getMobileMaxWidth(BuildContext context) =>
 
 class AppConstants {
   static const linkedInUrl =
-      "https://www.linkedin.com/in/agnel-selvan-328421192/";
-  static const instagramUrl = "https://www.instagram.com/_agnel.selvan_/";
-  static const githubUrl = "https://github.com/AgnelSelvan";
-  static const mediumUrl = "https://medium.com/@agnelselvan";
+      "https://www.linkedin.com/in/mohamed-ibrahim-a71108243/";
+  static const instagramUrl = "https://www.instagram.com/mohameahmed11/";
+  static const githubUrl = "https://github.com/Moe1211";
+  static const mediumUrl = "https://medium.com/@ibrahim.moe121";
 
   static const _assets = "assets/";
   static const _outputs = "outputs/";
 
   static const _svg = _assets + "svg/";
   static const guySvg = _svg + "guy.svg";
-  static const personSvg = _svg + "person.svg";
 
   static const _images = _assets + "images/";
-
+  static const personSvg = _socialImages + "file.png";
   static const _socialImages = _images + "social/";
   static const emailImage = _socialImages + "email.png";
   static const linkedInImage = _socialImages + "linkedin-logo.png";

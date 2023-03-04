@@ -33,7 +33,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                       height: 18.0,
                     ),
                     Text(
-                      "Agnel Selvan".toUpperCase(),
+                      "Mohamed Soliman".toUpperCase(),
                       style: GoogleFonts.josefinSans(
                         fontSize: 40.0,
                         fontWeight: FontWeight.w900,
@@ -66,7 +66,7 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                           width: 2,
                         ),
                         Text(
-                          "Mumbai",
+                          "Cairo, Egypt",
                           style: TextStyle(
                             color: kCaptionColor,
                             fontSize: 15.0,
