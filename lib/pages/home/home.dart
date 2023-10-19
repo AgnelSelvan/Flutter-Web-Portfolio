@@ -36,11 +36,6 @@ class _HomeState extends ConsumerState<Home>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Widget _buildPage() {
     return Stack(
       children: [
@@ -75,11 +70,19 @@ class _HomeState extends ConsumerState<Home>
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "My Works",
-                      style: GoogleFonts.josefinSans(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 36,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.simulation,
+                        );
+                      },
+                      child: Text(
+                        "My Works",
+                        style: GoogleFonts.josefinSans(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 36,
+                        ),
                       ),
                     ),
                     const SizedBox(

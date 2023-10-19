@@ -30,7 +30,7 @@ class AppConstants {
 
   static const _images = _assets + "images/";
 
-  static const _socialImages = _images + "social/";
+//   static const _socialImages = _images + "social/";
   // static const emailImage = _socialImages + "email.png";
   // static const linkedInImage = _socialImages + "linkedin-logo.png";
   // static const instaImage = _socialImages + "instagram.png";

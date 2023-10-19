@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/pages/home/components/footer.dart';
 import 'package:my_portfolio/pages/works/components/work_section.dart';
-import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:my_portfolio/widgets/header.dart';
 
@@ -16,14 +15,11 @@ class MyWorksScreen extends ConsumerStatefulWidget {
 }
 
 class _DemoScreenState extends ConsumerState<MyWorksScreen> {
-  late HomeProvider _homeProvider;
   final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-
-    _homeProvider = ref.read(homeProvider);
   }
 
   Widget _buildPage() {

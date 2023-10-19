@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:life_from_simple_rules/app.dart';
 import 'package:my_portfolio/pages/demo/demo.dart';
 import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/pages/works/works.dart';
@@ -9,6 +10,7 @@ class Routes {
   static const String initial = "/";
   static const String demos = "/demos";
   static const String myWorks = "/works";
+  static const String simulation = "/simulation";
 }
 
 class RouterGenerator {
@@ -23,6 +25,9 @@ class RouterGenerator {
       case Routes.myWorks:
         return _GeneratePageRoute(
             widget: const MyWorksScreen(), routeName: settings.name);
+      case Routes.simulation:
+        return _GeneratePageRoute(
+            widget: const ParticleApp(), routeName: settings.name);
       default:
         return _GeneratePageRoute(
             widget: const Home(), routeName: settings.name);

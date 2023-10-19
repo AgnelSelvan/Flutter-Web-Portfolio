@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=3.1.3 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -27,17 +27,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  animated_theme_switcher: ^2.0.6
-  carousel_slider: ^4.0.0
+  animated_theme_switcher: ^2.0.8
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  flutter_riverpod: ^1.0.3
+  flutter_riverpod: ^2.4.4
   flutter_svg: ^1.0.3
-  google_fonts: ^2.3.1
+  font_awesome_flutter: ^10.6.0
+  google_fonts: ^6.1.0
   responsive_framework: ^0.1.7
   url_launcher: ^6.0.20
-  font_awesome_flutter: ^10.1.0
+  life_from_simple_rules:
+    git: 
+      url: https://github.com/AgnelSelvan/simulation.git
+      path: life_from_simple_rules
+      ref: 91e0e690fad36711809f6d651e36a894cf01a096
+
 
 dev_dependencies:
   flutter_lints: ^1.0.0
