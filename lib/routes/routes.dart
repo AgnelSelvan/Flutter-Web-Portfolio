@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:life_from_simple_rules/app.dart';
+import 'package:life_from_simple_rules/screens/home.dart';
 import 'package:my_portfolio/pages/demo/demo.dart';
 import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/pages/works/works.dart';
@@ -27,7 +27,7 @@ class RouterGenerator {
             widget: const MyWorksScreen(), routeName: settings.name);
       case Routes.simulation:
         return _GeneratePageRoute(
-            widget: const ParticleApp(), routeName: settings.name);
+            widget: const ParticleScreen(), routeName: settings.name);
       default:
         return _GeneratePageRoute(
             widget: const Home(), routeName: settings.name);

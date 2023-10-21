@@ -188,8 +188,8 @@ packages:
     dependency: "direct main"
     description:
       path: life_from_simple_rules
-      ref: "91e0e690fad36711809f6d651e36a894cf01a096"
-      resolved-ref: "91e0e690fad36711809f6d651e36a894cf01a096"
+      ref: ad4214432a496ab75d39e664b60d2790f3e0ec00
+      resolved-ref: ad4214432a496ab75d39e664b60d2790f3e0ec00
       url: "https://github.com/AgnelSelvan/simulation.git"
     source: git
     version: "0.1.0"
