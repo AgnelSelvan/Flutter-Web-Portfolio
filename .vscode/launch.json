@@ -7,19 +7,10 @@
         {
             "name": "portfolio",
             "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "portfolio (profile mode)",
-            "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "args": [
+                "--dart-define-from-file=env.json"
+            ]
         },
-        {
-            "name": "portfolio (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
     ]
 }

@@ -27,23 +27,25 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  amplitude_flutter: ^3.16.2
   animated_theme_switcher: ^2.0.8
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
+  device_info_plus: ^9.1.2
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.4.4
   flutter_svg: ^1.0.3
   font_awesome_flutter: ^10.6.0
+  go_router: ^13.2.0
   google_fonts: ^6.1.0
-  responsive_framework: ^0.1.7
-  url_launcher: ^6.0.20
   life_from_simple_rules:
-    git: 
+    git:
       url: https://github.com/AgnelSelvan/simulation.git
       path: life_from_simple_rules
       ref: ad4214432a496ab75d39e664b60d2790f3e0ec00
-
+  responsive_framework: ^0.1.7
+  url_launcher: ^6.0.20
 
 dev_dependencies:
   flutter_lints: ^1.0.0

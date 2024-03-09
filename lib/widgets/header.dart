@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/pages/home/components/header.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
 
 class CommonHeader extends StatelessWidget {
   const CommonHeader({Key? key}) : super(key: key);
@@ -12,9 +12,9 @@ class CommonHeader extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: ScreenHelper.isDesktop(context) ? 24 : 16.0),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             HeaderLogo(),
           ],
         ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
+import 'package:my_portfolio/core/utils/utils.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/provider/theme.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
-import 'package:my_portfolio/utils/utils.dart';
 
 class ProjectSection extends StatelessWidget {
   final List<ProjectModel> projects;
@@ -149,27 +150,32 @@ class ProjectSection extends StatelessWidget {
                             children: [
                               MouseRegion(
                                 cursor: SystemMouseCursors.click,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: kPrimaryColor,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  height: 48.0,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 28.0,
-                                  ),
-                                  child: TextButton(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    style: const ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(
+                                        kPrimaryColor,
+                                      ),
+                                    ),
                                     onPressed: () {
-                                      Utilty.openUrl(projectModel.projectLink);
+                                      if (projectModel.internalLink) {
+                                        context
+                                            .goNamed(projectModel.projectLink);
+                                      } else {
+                                        Utilty.openUrl(
+                                            projectModel.projectLink);
+                                      }
                                     },
                                     child: Center(
                                       child: Text(
                                         (projectModel.buttonText ??
                                                 "Explore MORE")
                                             .toUpperCase(),
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 13.0,
                                           fontWeight: FontWeight.bold,
+                                          color: Colors.grey[800],
                                         ),
                                       ),
                                     ),

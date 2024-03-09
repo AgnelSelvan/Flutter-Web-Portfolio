@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/core/routes/routes.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/globals.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
+import 'package:my_portfolio/core/utils/utils.dart';
 import 'package:my_portfolio/models/header_item.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
-import 'package:my_portfolio/routes/routes.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/globals.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
-import 'package:my_portfolio/utils/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HeaderLogo extends StatelessWidget {
@@ -23,7 +24,7 @@ class HeaderLogo extends StatelessWidget {
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, Routes.initial);
+              context.goNamed(Routes.initial);
             },
             child: RichText(
               text: TextSpan(

@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/provider/theme.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/utils.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/utils.dart';
 
 import '../../../models/carousel_item_model.dart';
 
@@ -47,8 +47,8 @@ List<CarouselItemModel> carouselItems(double carouselContainerHeight) =>
                     const SizedBox(
                       height: 10.0,
                     ),
-                    Row(
-                      children: const [
+                    const Row(
+                      children: [
                         Text(
                           "Software Engineer, ",
                           style: TextStyle(

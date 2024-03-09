@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/pages/demo/components/demo_section.dart';
 import 'package:my_portfolio/pages/home/components/footer.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
 import 'package:my_portfolio/widgets/header.dart';
 
 class DemoScreen extends ConsumerStatefulWidget {

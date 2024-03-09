@@ -1,7 +1,14 @@
+import 'dart:async';
+
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/core/routes/routes.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/globals.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
 import 'package:my_portfolio/models/project.dart';
 import 'package:my_portfolio/pages/home/components/about.dart';
 import 'package:my_portfolio/pages/home/components/carousel.dart';
@@ -10,12 +17,9 @@ import 'package:my_portfolio/pages/home/components/header.dart';
 import 'package:my_portfolio/pages/home/components/portfolio_stats.dart';
 import 'package:my_portfolio/pages/home/components/project.dart';
 import 'package:my_portfolio/pages/home/components/service.dart';
+import 'package:my_portfolio/provider/amplitutde.dart';
 import 'package:my_portfolio/provider/home.dart';
 import 'package:my_portfolio/provider/theme.dart';
-import 'package:my_portfolio/routes/routes.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/globals.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:my_portfolio/widgets/switch.dart';
 
 class Home extends ConsumerStatefulWidget {
@@ -28,11 +32,20 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home>
     with SingleTickerProviderStateMixin {
   late HomeProvider _homeProvider;
+  late AmplitutdeProvider _amplitutdeProvider;
   final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     _homeProvider = ref.read(homeProvider);
+    _amplitutdeProvider = ref.read(amplitudeProvider);
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      Timer(const Duration(seconds: 2), () async {
+        _amplitutdeProvider.logStartupEvent();
+        await _amplitutdeProvider.logAScreen("home");
+      });
+    });
     super.initState();
   }
 
@@ -72,8 +85,7 @@ class _HomeState extends ConsumerState<Home>
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(
-                          context,
+                        context.goNamed(
                           Routes.simulation,
                         );
                       },
@@ -101,8 +113,7 @@ class _HomeState extends ConsumerState<Home>
                         margin: const EdgeInsets.only(right: 10),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(
-                              context,
+                            context.goNamed(
                               Routes.myWorks,
                             );
                           },
@@ -129,8 +140,8 @@ class _HomeState extends ConsumerState<Home>
                 ProjectSection(
                   projects: ProjectModel.projects.take(4).toList(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 28.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 28.0),
                   child: PortfolioStats(),
                 ),
                 const SizedBox(

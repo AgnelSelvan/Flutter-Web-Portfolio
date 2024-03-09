@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
 import 'package:my_portfolio/models/stat.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final List<Stat> stats = [
   Stat(count: "5+", text: "Projects"),
   Stat(count: "4", text: "Awards"),
-  Stat(count: "1", text: "Years\nExperience"),
+  Stat(
+      count: (DateTime.now().year - 2021).toString(),
+      text: "Years\nExperience"),
 ];
 
 class PortfolioStats extends StatelessWidget {
+  const PortfolioStats({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

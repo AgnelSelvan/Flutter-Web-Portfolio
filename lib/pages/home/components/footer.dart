@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/footer_item.dart';
-import 'package:my_portfolio/utils/constants.dart';
-import 'package:my_portfolio/utils/screen_helper.dart';
-import 'package:my_portfolio/utils/utils.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
+import 'package:my_portfolio/core/utils/screen_helper.dart';
+import 'package:my_portfolio/core/utils/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 final List<FooterItem> footerItems = [
@@ -144,10 +144,10 @@ Widget _buildUi(double width, BuildContext context) {
               const SizedBox(
                 height: 20.0,
               ),
-              Flex(
+              const Flex(
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Padding(
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(

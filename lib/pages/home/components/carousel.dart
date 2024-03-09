@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../utils/constants.dart';
-import '../../../utils/screen_helper.dart';
+import '../../../core/utils/constants.dart';
+import '../../../core/utils/screen_helper.dart';
 import 'carousel_items.dart';
 
 class Carousel extends StatelessWidget {

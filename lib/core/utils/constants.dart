@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/core/utils/utils.dart';
 import 'package:my_portfolio/models/header_item.dart';
-import 'package:my_portfolio/utils/utils.dart';
 
 const Color kPrimaryColor = Color(0xFFFFD800);
 const Color kBackgroundColor = Color.fromRGBO(7, 17, 26, 1);
@@ -56,6 +56,8 @@ class AppConstants {
   static const musicLabImage = _projectsImages + "4.jpeg";
   static const personalFaceImage = _projectsImages + "5.jpeg";
   static const computerStoreImage = _projectsImages + "6.jpeg";
+  static const jsonToDartImage = _projectsImages + "7.png";
+  static const simulationImage = _projectsImages + "8.png";
 
   static const _gifs = _outputs + "gif/";
   static const portfolioGif = _gifs + "mobile.gif";

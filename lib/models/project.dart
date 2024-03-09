@@ -1,6 +1,7 @@
+import 'package:my_portfolio/core/routes/routes.dart';
+import 'package:my_portfolio/core/utils/constants.dart';
 import 'package:my_portfolio/models/link.dart';
 import 'package:my_portfolio/models/technology.dart';
-import 'package:my_portfolio/utils/constants.dart';
 
 class ProjectModel {
   final String project;
@@ -8,6 +9,7 @@ class ProjectModel {
   final String description;
   final String? appPhotos;
   final String projectLink;
+  final bool internalLink;
   final List<TechnologyModel> techUsed;
   List<LinkModel>? links = [];
   final String? buttonText;
@@ -18,6 +20,7 @@ class ProjectModel {
     required this.description,
     this.appPhotos,
     required this.projectLink,
+    this.internalLink = false,
     required this.techUsed,
     this.buttonText,
     this.links,
@@ -63,6 +66,31 @@ class ProjectModel {
         TechnologyConstants.razorPay
       ],
       buttonText: "Github Link",
+    ),
+    ProjectModel(
+      project: "Flutter",
+      title: "Json to Dart Generator",
+      description: "Generate Dart class using Json Object using Flutter",
+      appPhotos: AppConstants.jsonToDartImage,
+      internalLink: true,
+      projectLink: Routes.jsonToDart,
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: "Product Link",
+    ),
+    ProjectModel(
+      project: "Flutter",
+      title: "Particle Simulations",
+      description:
+          "Created a particle simulation that adheres to Newton's Laws of Motion 🌟📐.",
+      appPhotos: AppConstants.simulationImage,
+      internalLink: true,
+      projectLink: Routes.simulation,
+      techUsed: [
+        TechnologyConstants.flutter,
+      ],
+      buttonText: "Product Link",
     ),
     ProjectModel(
       project: "Swift App",
