@@ -9,6 +9,6 @@ void configureApp() {
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  configureApp();
+  // usePathUrlStrategy();
   runApp(const ProviderScope(child: MyApp()));
 }

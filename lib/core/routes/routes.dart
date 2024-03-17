@@ -7,12 +7,14 @@ import 'package:my_portfolio/pages/home/home.dart';
 import 'package:my_portfolio/pages/json_to_dart/json_to_dart.dart';
 import 'package:my_portfolio/pages/works/works.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:sand_simulation/home.dart';
 
 class Routes {
   static const String initial = "/";
   static const String demos = "demos";
   static const String myWorks = "works";
   static const String simulation = "simulation";
+  static const String sandSimulation = "simulation/sand";
   static const String jsonToDart = "json_to_dart";
 }
 
@@ -42,6 +44,12 @@ class RouterGenerator {
             name: Routes.simulation,
             builder: (context, state) =>
                 const _AppResponsiveBuilder(child: ParticleScreen()),
+          ),
+          GoRoute(
+            path: Routes.sandSimulation,
+            name: Routes.sandSimulation,
+            builder: (context, state) =>
+                const _AppResponsiveBuilder(child: SandSimulationScreen()),
           ),
           GoRoute(
             path: Routes.jsonToDart,

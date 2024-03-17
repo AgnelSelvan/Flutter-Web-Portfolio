@@ -393,6 +393,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.4"
+  sand_simulation:
+    dependency: "direct main"
+    description:
+      path: sand_simulation
+      ref: "585f5237d5c5d1a25be9225b112ff94aa3710b40"
+      resolved-ref: "585f5237d5c5d1a25be9225b112ff94aa3710b40"
+      url: "https://github.com/AgnelSelvan/simulation.git"
+    source: git
+    version: "1.0.0+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -575,5 +584,5 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
-  dart: ">=3.2.0 <4.0.0"
+  dart: ">=3.2.6 <4.0.0"
   flutter: ">=3.13.0"
