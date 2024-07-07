@@ -34,6 +34,7 @@ dependencies:
   device_info_plus: ^9.1.2
   flutter:
     sdk: flutter
+  flutter_html:
   flutter_riverpod: ^2.4.4
   flutter_svg: ^1.0.3
   font_awesome_flutter: ^10.6.0
@@ -44,12 +45,12 @@ dependencies:
       url: https://github.com/AgnelSelvan/simulation.git
       path: life_from_simple_rules
       ref: ad4214432a496ab75d39e664b60d2790f3e0ec00
+  responsive_framework: ^0.1.7
   sand_simulation:
     git:
       url: https://github.com/AgnelSelvan/simulation.git
       path: sand_simulation
       ref: 585f5237d5c5d1a25be9225b112ff94aa3710b40
-  responsive_framework: ^0.1.7
   url_launcher: ^6.0.20
 
 dev_dependencies:
