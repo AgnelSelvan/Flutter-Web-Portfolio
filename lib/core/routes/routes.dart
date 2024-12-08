@@ -4,6 +4,7 @@ import 'package:life_from_simple_rules/screens/home.dart';
 import 'package:my_portfolio/core/utils/constants.dart';
 import 'package:my_portfolio/pages/demo/demo.dart';
 import 'package:my_portfolio/pages/home/home.dart';
+import 'package:my_portfolio/pages/home/smart_bill_book/smart_bill_book.dart';
 import 'package:my_portfolio/pages/json_to_dart/json_to_dart.dart';
 import 'package:my_portfolio/pages/video_downloader/video_downloader.dart';
 import 'package:my_portfolio/pages/works/works.dart';
@@ -18,6 +19,7 @@ class Routes {
   static const String sandSimulation = "simulation/sand";
   static const String jsonToDart = "json_to_dart";
   static const String videoDownloader = "video_downloader";
+  static const String smartBillBookPrivacy = "smart_bill_book/privacy";
 }
 
 class RouterGenerator {
@@ -64,6 +66,12 @@ class RouterGenerator {
             name: Routes.videoDownloader,
             builder: (context, state) =>
                 const _AppResponsiveBuilder(child: VideoDownloaderScreen()),
+          ),
+          GoRoute(
+            path: Routes.smartBillBookPrivacy,
+            name: Routes.smartBillBookPrivacy,
+            builder: (context, state) => const _AppResponsiveBuilder(
+                child: SmartBillBookPrivacyPolicyScreen()),
           ),
         ],
       ),
