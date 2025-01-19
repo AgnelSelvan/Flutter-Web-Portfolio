@@ -104,13 +104,13 @@ class SmartBillBookPrivacyPolicyScreen extends StatelessWidget {
                   onTap: () {
                     final Uri _emailLaunchUri = Uri(
                         scheme: 'mailto',
-                        path: 'agnel.selvan.dev@gmail.com',
+                        path: 'smart.billing.book@gmail.com',
                         queryParameters: {
                           'subject': 'Enquiry related to Smart Bill Book'
                         });
                     launch(_emailLaunchUri.toString());
                   },
-                  child: const Text("Email: agnel.selvan.dev@gmail.com")),
+                  child: const Text("Email: smart.billing.book@gmail.com")),
               const SizedBox(
                 height: 30,
               ),
